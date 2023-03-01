@@ -31,5 +31,7 @@ declare module 'react-date-picker' {
     showLeadingZeros?: boolean;
     yearAriaLabel?: string;
     yearPlaceholder?: string;
+    onInvalidEntry: () => void;
+    onInputFocused: (date: string) => void;
   }
 }

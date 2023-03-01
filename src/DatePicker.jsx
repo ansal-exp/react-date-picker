@@ -83,7 +83,11 @@ export default class DatePicker extends PureComponent {
   };
 
   onFocus = (event) => {
-    const { disabled, onFocus, openCalendarOnFocus } = this.props;
+    const { disabled, onFocus, openCalendarOnFocus, onInputFocused, value } = this.props;
+    const [valueFrom] = [].concat(value);
+    alert('this.onFocus', valueFrom);
+    console.log('onFocus:onInputFocused ', valueFrom);
+    onInputFocused('onFocus');
 
     if (onFocus) {
       onFocus(event);
@@ -166,6 +170,8 @@ export default class DatePicker extends PureComponent {
       value,
       yearAriaLabel,
       yearPlaceholder,
+      onInvalidEntry,
+      onInputFocused,
     } = this.props;
     const { isOpen } = this.state;
 
@@ -185,7 +191,14 @@ export default class DatePicker extends PureComponent {
     };
 
     return (
-      <div className={`${baseClassName}__wrapper`}>
+      <div
+        className={`${baseClassName}__wrapper`}
+        onFocus={(e) => {
+          console.log('onInputFocused', valueFrom);
+          if (onInputFocused) onInputFocused(valueFrom);
+          if (e) this.stopPropagation(e);
+        }}
+      >
         <DateInput
           {...ariaLabelProps}
           {...placeholderProps}
@@ -205,6 +218,12 @@ export default class DatePicker extends PureComponent {
           returnValue={returnValue}
           showLeadingZeros={showLeadingZeros}
           value={valueFrom}
+          onInvalidEntry={onInvalidEntry}
+          onInputFocused={(e) => {
+            console.log('onInputFocused', valueFrom);
+            if (onInputFocused) onInputFocused(valueFrom);
+            if (e) this.stopPropagation(e);
+          }}
         />
         {clearIcon !== null && (
           <button
@@ -212,7 +231,12 @@ export default class DatePicker extends PureComponent {
             className={`${baseClassName}__clear-button ${baseClassName}__button`}
             disabled={disabled}
             onClick={this.clear}
-            onFocus={this.stopPropagation}
+            // onFocus={this.stopPropagation}
+            onFocus={(e) => {
+              console.log('onInputFocused', valueFrom);
+              if (onInputFocused) onInputFocused(valueFrom);
+              if (e) this.stopPropagation(e);
+            }}
             type="button"
           >
             {typeof clearIcon === 'function' ? React.createElement(clearIcon) : clearIcon}
@@ -225,7 +249,12 @@ export default class DatePicker extends PureComponent {
             disabled={disabled}
             onBlur={this.resetValue}
             onClick={this.toggleCalendar}
-            onFocus={this.stopPropagation}
+            // onFocus={this.stopPropagation}
+            onFocus={(e) => {
+              console.log('onInputFocused', valueFrom);
+              if (onInputFocused) onInputFocused(valueFrom);
+              if (e) this.stopPropagation(e);
+            }}
             type="button"
           >
             {typeof calendarIcon === 'function' ? React.createElement(calendarIcon) : calendarIcon}
@@ -393,4 +422,6 @@ DatePicker.propTypes = {
   value: PropTypes.oneOfType([isValue, PropTypes.arrayOf(isValue)]),
   yearAriaLabel: PropTypes.string,
   yearPlaceholder: PropTypes.string,
+  onInvalidEntry: PropTypes.func,
+  onInputFocused: PropTypes.func,
 };

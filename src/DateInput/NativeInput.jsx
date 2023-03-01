@@ -14,6 +14,7 @@ export default function NativeInput({
   required,
   value,
   valueType,
+  onFocus,
 }) {
   const nativeInputType = (() => {
     switch (valueType) {
@@ -57,7 +58,11 @@ export default function NativeInput({
       min={minDate ? nativeValueParser(minDate) : null}
       name={name}
       onChange={onChange}
-      onFocus={stopPropagation}
+      onFocus={(event) => {
+        onFocus();
+        console.log('NativeInput: onFocus');
+        stopPropagation(event);
+      }}
       required={required}
       style={{
         visibility: 'hidden',
@@ -80,4 +85,5 @@ NativeInput.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
   valueType: isValueType,
+  onFocus: PropTypes.func,
 };
