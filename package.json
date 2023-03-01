@@ -12,6 +12,7 @@
     "copy-types": "node ./copy-types.mjs",
     "jest": "jest",
     "lint": "eslint . --ext .js,.jsx",
+    "postinstall": "husky install",
     "prepack": "yarn clean && yarn build",
     "prettier": "prettier --check . --cache",
     "test": "yarn lint && yarn prettier && yarn jest"
