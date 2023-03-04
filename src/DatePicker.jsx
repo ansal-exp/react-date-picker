@@ -230,7 +230,7 @@ export default class DatePicker extends PureComponent {
             onFocus={(e) => {
               console.log('onInputFocused', valueFrom);
               if (onInputFocused) onInputFocused(valueFrom);
-              if (e) this.stopPropagation(e);
+              // if (e) this.stopPropagation(e);
             }}
             type="button"
           >
@@ -248,7 +248,7 @@ export default class DatePicker extends PureComponent {
             onFocus={(e) => {
               console.log('onInputFocused', valueFrom);
               if (onInputFocused) onInputFocused(valueFrom);
-              if (e) this.stopPropagation(e);
+              // if (e) this.stopPropagation(e);
             }}
             type="button"
           >

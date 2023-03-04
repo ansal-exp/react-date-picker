@@ -259,8 +259,9 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
         onFocus: function onFocus(e) {
           console.log('onInputFocused', valueFrom);
           if (_onInputFocused) _onInputFocused(valueFrom);
-          if (e) _this3.stopPropagation(e);
+          // if (e) this.stopPropagation(e);
         },
+
         type: "button"
       }, typeof clearIcon === 'function' ? /*#__PURE__*/_react["default"].createElement(clearIcon) : clearIcon), calendarIcon !== null && !disableCalendar && /*#__PURE__*/_react["default"].createElement("button", {
         "aria-label": calendarAriaLabel,
@@ -273,8 +274,9 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
         onFocus: function onFocus(e) {
           console.log('onInputFocused', valueFrom);
           if (_onInputFocused) _onInputFocused(valueFrom);
-          if (e) _this3.stopPropagation(e);
+          // if (e) this.stopPropagation(e);
         },
+
         type: "button"
       }, typeof calendarIcon === 'function' ? /*#__PURE__*/_react["default"].createElement(calendarIcon) : calendarIcon));
     }
