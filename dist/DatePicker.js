@@ -83,13 +83,7 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
         disabled = _this$props.disabled,
         onFocus = _this$props.onFocus,
         openCalendarOnFocus = _this$props.openCalendarOnFocus,
-        onInputFocused = _this$props.onInputFocused,
-        value = _this$props.value;
-      var _concat = [].concat(value),
-        _concat2 = _slicedToArray(_concat, 1),
-        valueFrom = _concat2[0];
-      alert('this.onFocus', valueFrom);
-      console.log('onFocus:onInputFocused ', valueFrom);
+        onInputFocused = _this$props.onInputFocused;
       onInputFocused('onFocus');
       if (onFocus) {
         onFocus(event);
@@ -213,9 +207,9 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
         onInvalidEntry = _this$props3.onInvalidEntry,
         _onInputFocused = _this$props3.onInputFocused;
       var isOpen = this.state.isOpen;
-      var _concat3 = [].concat(value),
-        _concat4 = _slicedToArray(_concat3, 1),
-        valueFrom = _concat4[0];
+      var _concat = [].concat(value),
+        _concat2 = _slicedToArray(_concat, 1),
+        valueFrom = _concat2[0];
       var ariaLabelProps = {
         dayAriaLabel: dayAriaLabel,
         monthAriaLabel: monthAriaLabel,
@@ -229,10 +223,9 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
       };
       return /*#__PURE__*/_react["default"].createElement("div", {
         className: "".concat(baseClassName, "__wrapper"),
-        onFocus: function onFocus(e) {
-          console.log('onInputFocused', valueFrom);
+        onFocus: function onFocus() {
           if (_onInputFocused) _onInputFocused(valueFrom);
-          if (e) _this3.stopPropagation(e);
+          // if (e) this.stopPropagation(e);
         }
       }, /*#__PURE__*/_react["default"].createElement(_DateInput["default"], _extends({}, ariaLabelProps, placeholderProps, {
         // eslint-disable-next-line jsx-a11y/no-autofocus
@@ -253,7 +246,6 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
         value: valueFrom,
         onInvalidEntry: onInvalidEntry,
         onInputFocused: function onInputFocused(e) {
-          console.log('onInputFocused', valueFrom);
           if (_onInputFocused) _onInputFocused(valueFrom);
           if (e) _this3.stopPropagation(e);
         }

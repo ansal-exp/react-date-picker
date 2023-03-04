@@ -83,10 +83,7 @@ export default class DatePicker extends PureComponent {
   };
 
   onFocus = (event) => {
-    const { disabled, onFocus, openCalendarOnFocus, onInputFocused, value } = this.props;
-    const [valueFrom] = [].concat(value);
-    alert('this.onFocus', valueFrom);
-    console.log('onFocus:onInputFocused ', valueFrom);
+    const { disabled, onFocus, openCalendarOnFocus, onInputFocused } = this.props;
     onInputFocused('onFocus');
 
     if (onFocus) {
@@ -193,10 +190,9 @@ export default class DatePicker extends PureComponent {
     return (
       <div
         className={`${baseClassName}__wrapper`}
-        onFocus={(e) => {
-          console.log('onInputFocused', valueFrom);
+        onFocus={() => {
           if (onInputFocused) onInputFocused(valueFrom);
-          if (e) this.stopPropagation(e);
+          // if (e) this.stopPropagation(e);
         }}
       >
         <DateInput
@@ -220,7 +216,6 @@ export default class DatePicker extends PureComponent {
           value={valueFrom}
           onInvalidEntry={onInvalidEntry}
           onInputFocused={(e) => {
-            console.log('onInputFocused', valueFrom);
             if (onInputFocused) onInputFocused(valueFrom);
             if (e) this.stopPropagation(e);
           }}
