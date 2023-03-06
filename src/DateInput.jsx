@@ -603,7 +603,8 @@ export default class DateInput extends PureComponent {
         valueType={this.valueType}
         onFocus={() => {
           console.log('DateInput onFocus:', name);
-          if (onInputFocused) onInputFocused();
+          // if (onInputFocused) onInputFocused();
+          this.onChangeExternal();
         }}
       />
     );

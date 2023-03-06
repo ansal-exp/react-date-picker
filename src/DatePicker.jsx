@@ -83,8 +83,13 @@ export default class DatePicker extends PureComponent {
   };
 
   onFocus = (event) => {
-    const { disabled, onFocus, openCalendarOnFocus, onInputFocused } = this.props;
-    onInputFocused('onFocus');
+    const {
+      disabled,
+      onFocus,
+      openCalendarOnFocus,
+      // onInputFocused
+    } = this.props;
+    // onInputFocused('onFocus');
 
     if (onFocus) {
       onFocus(event);

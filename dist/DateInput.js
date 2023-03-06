@@ -521,6 +521,7 @@ var DateInput = /*#__PURE__*/function (_PureComponent) {
   }, {
     key: "renderNativeInput",
     value: function renderNativeInput() {
+      var _this2 = this;
       var _this$props8 = this.props,
         disabled = _this$props8.disabled,
         maxDate = _this$props8.maxDate,
@@ -543,7 +544,8 @@ var DateInput = /*#__PURE__*/function (_PureComponent) {
         valueType: this.valueType,
         onFocus: function onFocus() {
           console.log('DateInput onFocus:', name);
-          if (onInputFocused) onInputFocused();
+          // if (onInputFocused) onInputFocused();
+          _this2.onChangeExternal();
         }
       });
     }

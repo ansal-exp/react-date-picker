@@ -82,9 +82,9 @@ var DatePicker = /*#__PURE__*/function (_PureComponent) {
       var _this$props = _this.props,
         disabled = _this$props.disabled,
         onFocus = _this$props.onFocus,
-        openCalendarOnFocus = _this$props.openCalendarOnFocus,
-        onInputFocused = _this$props.onInputFocused;
-      onInputFocused('onFocus');
+        openCalendarOnFocus = _this$props.openCalendarOnFocus;
+      // onInputFocused('onFocus');
+
       if (onFocus) {
         onFocus(event);
       }
